@@ -39,5 +39,8 @@ class IntegrationListener
 
         $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'jira']);
         $integrationContainer->addIntegration(new Integration('Jira', '/images/integrations/jira-logo-01.png', 'Your favourite issue tracker.', $url));
+
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'leankoala']);
+        $integrationContainer->addIntegration(new Integration('www.leankoala.com', '/images/integrations/leankoala.png', 'Koalamons little brother.', $url));
     }
 }

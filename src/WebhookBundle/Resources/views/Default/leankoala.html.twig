@@ -1,0 +1,18 @@
+{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+
+{% block admin %}
+
+    <h1>LeanKoala</h1>
+
+    <div id="integration">
+
+        <div style="clear: both"></div>
+        <div class="how-to">
+            <h2>How to integrate LeanKoala</h2>
+
+            <div class="code">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+
+        </div>
+    </div>
+
+{% endblock %}
