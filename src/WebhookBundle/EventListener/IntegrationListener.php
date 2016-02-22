@@ -1,6 +1,6 @@
 <?php
 
-namespace KoalamonIntegrations\WebhookBundle\EventListener;
+namespace KoalamonIntegration\WebhookBundle\EventListener;
 
 use Koalamon\Bundle\IntegrationBundle\EventListener\IntegrationInitEvent;
 use Koalamon\Bundle\IntegrationBundle\Integration\Integration;

@@ -1,6 +1,6 @@
 <?php
 
-namespace KoalamonIntegrations\WebhookBundle\Tests\Controller;
+namespace KoalamonIntegration\WebhookBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
