@@ -15,6 +15,7 @@ class BundleKernel
     public static function registerBundles($environment)
     {
         $bundles = [
+            new CoreBundle\KoalamonIntegrationCoreBundle(),
             new KoalamonIntegrationWebhookBundle(),
         ];
 
