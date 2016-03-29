@@ -1,0 +1,19 @@
+{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+
+{% block admin %}
+    <h1>Travis CI</h1>
+
+    <div id="integration">
+        <div class="about">
+        </div>
+        <div style="clear: both"></div>
+        <div class="how-to">
+
+<div class="code">
+notifications:
+  webhooks: {{ url('koalamon_webhook_format', {'format': 'travis'}) }}?api_key={{ project.apiKey }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
