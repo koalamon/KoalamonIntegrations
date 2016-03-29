@@ -1,0 +1,3 @@
+koalamonintegration_email:
+    path:     /p/{project}/email/integration/{integrationName}/
+    defaults: { _controller: KoalamonIntegrationEmailBundle:Default:index }

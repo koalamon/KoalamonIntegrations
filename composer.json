@@ -1,6 +1,12 @@
 {
   "name": "koalamon/koalamonintegration",
   "description": "The koalamon integrations",
+
+  "require": {
+    "php": ">= 5.5.0",
+    "ddeboer/imap": "~0"
+  },
+
   "autoload": {
     "psr-4": {
       "KoalamonIntegration\\": "src/"

@@ -17,6 +17,7 @@ class BundleKernel
         $bundles = [
             new CoreBundle\KoalamonIntegrationCoreBundle(),
             new KoalamonIntegrationWebhookBundle(),
+            new EmailBundle\KoalamonIntegrationEmailBundle()
         ];
 
         return $bundles;
