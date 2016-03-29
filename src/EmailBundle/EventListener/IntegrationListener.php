@@ -21,6 +21,6 @@ class IntegrationListener
         $integrationContainer = $event->getIntegrationContainer();
 
         $url = $this->router->generate('koalamonintegration_email', ['project' => $event->getProject()->getIdentifier(), 'integrationName' => 'icinga']);
-        $integrationContainer->addIntegration(new Integration('Icinga', '', 'icinga ...', $url));
+        $integrationContainer->addIntegration(new Integration('Icinga', '/bundles/koalamonintegrationemail/images/icinga.png', 'Icinga is a scalable and extensible monitoring system.', $url));
     }
 }
