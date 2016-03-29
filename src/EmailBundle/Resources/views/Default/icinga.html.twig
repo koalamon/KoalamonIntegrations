@@ -1,11 +1,13 @@
 {% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
 
 {% block admin %}
-    <h1><Icinga></Icinga></h1>
+    <h1>
+        Icinga
+    </h1>
 
     <div id="integration">
         <div class="code">
-            jenkins.{{ project.apiKey }}@koalamon.com
+            icinga.{{ project.apiKey }}@{{ app.request.getSchemeAndHttpHost() | replace({'http://': '', 'https://': ''}) }}
         </div>
     </div>
 
