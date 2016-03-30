@@ -44,7 +44,9 @@ class IntegrationListener
         $integrationContainer->addIntegration(new Integration('www.leankoala.com', '/images/integrations/leankoala.png', 'Koalamons little brother.', $url));
 
         $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'travis']);
-        $integrationContainer->addIntegration(new Integration('Travis CI', '/bundles/koalamonintegrationwebhook/images/travis.png', 'Easily sync your projects with Travis CI. Testing your code in minutes!.', $url));
+        $integrationContainer->addIntegration(new Integration('Travis CI', '/bundles/koalamonintegrationwebhook/images/travis.png', 'Easily sync your projects with Travis CI. Testing your code in minutes!', $url));
 
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'jenkins']);
+        $integrationContainer->addIntegration(new Integration('Jenkins', '/bundles/koalamonintegrationwebhook/images/jenkins.png', 'Build great things at any scale', $url));
     }
 }

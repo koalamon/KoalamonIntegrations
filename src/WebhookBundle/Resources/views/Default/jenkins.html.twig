@@ -1,8 +1,12 @@
 {% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
 
 {% block admin %}
-<h1>Jenkins</h1>
+    <h1>Jenkins</h1>
 
-    
+    https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin
+
+    <br><br>
+
+    {{ url('koalamon_webhook_format', {'format': 'jenkins'}) }}?api_key={{ project.apiKey }}
 
 {% endblock %}

@@ -9,6 +9,8 @@
         <div style="clear: both"></div>
         <div class="how-to">
 
+            Connecting Travis CI to Koalamon is very simple. Just add these to lines of code to your travis.yml file and commit your changes. Done.
+
 <div class="code">
 notifications:
   webhooks: {{ url('koalamon_webhook_format', {'format': 'travis'}) }}?api_key={{ project.apiKey }}
