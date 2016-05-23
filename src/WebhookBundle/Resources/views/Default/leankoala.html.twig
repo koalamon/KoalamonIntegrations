@@ -4,15 +4,106 @@
 
     <h1>LeanKoala</h1>
 
-    <div id="integration">
+    LeanKoala is the little brother of koalamon. It is the first (and only) lean testing SaaS solution.
 
-        <div style="clear: both"></div>
-        <div class="how-to">
-            <h2>How to integrate LeanKoala</h2>
 
-            <div class="code">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+    <div class="box-element first">
+        <div class="box-element-content">
+            <div class="options-element first" style="padding-top: 50px">
+                <div class="option">
+                    <h2><strong>Notification Channel</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/leankoala/step1.png') }}">
+                </div>
+                <div class="help">
+                    {% content "integration-leankoala-step1" %}
+                    <p>
+                        The first thing you have to do if you want to integrate leankoala with koalamon is to create a
+                        new notification channel. As leankoala sends the same webhook payload as koalamon needs the
+                        integration is quite easy.
+                    </p>
+                    <p>
+                        Go to your leankoala project and then Administration | Notifications and create a new
+                        <strong>Webhook Notification Channel</strong>.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element first" style="padding-top: 50px">
+                <div class="option">
+                    <h2><strong>Create Channel</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/leankoala/step2.png') }}">
+                </div>
+                <div class="help">
+                    {% content "integration-leankoala-step2" %}
+                    <p>
+                        There are two fields that have to been filled when using the webhook. First field is the
+                        name of the hook. You can choose whatever name you want. We prefer to use the koalamon project
+                        name.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
 
         </div>
+
+        <div style="clear: both"></div>
+
+        <div class="options-element first" style="padding-top: 50px">
+            <div class="option">
+                <h2><strong>Webhook URL</strong></h2>
+                <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+            </div>
+            <div class="help">
+                {% content "integration-leankoala-step3" %}
+                <p>
+                    The second field is the webhook url. Please use the url provided on the left.
+                </p>
+                {% endcontent %}
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+
+        <div class="options-element first" style="padding-top: 50px">
+            <div class="option">
+                <h2><strong>Alerts</strong></h2>
+                <img src="{{ asset('bundles/koalamonintegrationwebhook/images/leankoala/step4.png') }}">
+            </div>
+            <div class="help">
+                {% content "integration-leankoala-step4" %}
+                <p>
+                    Configuring a Notification in LeanKoala is a twe step procedure. When the Channel was created
+                    successfully the tools, that you want to report must be selected. Therefore you have to switch
+                    to the Alerts page and connect the tools.
+                </p>
+                {% endcontent %}
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+
+        <div class="options-element first" style="padding-top: 50px">
+            <div class="option">
+                <h2><strong>Connect Tools</strong></h2>
+                <img src="{{ asset('bundles/koalamonintegrationwebhook/images/leankoala/step5.png') }}">
+            </div>
+            <div class="help">
+                {% content "integration-leankoala-step5" %}
+                <p>
+                    The last step that must be done is the connection of the tools. Please select all
+                    the tools you want to report to koalamon. It is recommended to send all events to
+                    koalamon, so you can use the koalamon statistics plug ins to analyse your data.
+                </p>
+                {% endcontent %}
+            </div>
+        </div>
+
+        <div style="clear: both"></div>
+
     </div>
+
 
 {% endblock %}
