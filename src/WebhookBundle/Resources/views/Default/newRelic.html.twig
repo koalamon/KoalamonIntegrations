@@ -2,63 +2,70 @@
 
 {% block admin %}
 
-    <h1>New Relic</h1>
+    <div class="box-element first">
+        <div class="box-element-header">New Relic</div>
+        <div class="box-element-content">
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Alerts</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/newrelic/step1.png') }}" width="250px">
+                </div>
+                <div class="help">
+                    {% content "integration-newrelic-step1" %}
+                    First thing is to define the events you want to be alerted for. There are no special rules that have to be considered.
+                    {% endcontent %}
+                </div>
+            </div>
 
-    <div id="integration">
-        <div class="about">
-            <img src="/images/integrations/newrelic_about.jpg" style="float: left; width: 300px; padding-right: 80px">
-            Your customers and business depend on increasingly complex applications and infrastructure. New Relic Software Analytics uses real-time data to bring it all together.
-            <ul>
-                <li>
-                    <b>High-performing apps.</b> - Quickly pinpoint if it was your code, backend server, or 3rd-party service that caused an issue.
-                    Improve your application performance with APM, Synthetics, Plugins, and Servers.
-                </li>
-                <li><b>Delightful customer experiences.</b> - Monitor real-user interactions to identify errors, crashes, and drop-offs in optimal user flows.
-                    See the true picture of your customer experience with Browser and Mobile.
-                </li>
-                <li>
-                    <b>Better business results.</b> - Stop guessing. See how issues affect your customers and your business, then take action faster armed with real data.
-                    Get to the bottom-line with Insights.
-                </li>
-                <li>
-                    <b>Thrive in the cloud.</b> - From adoption to migration, New Relic gives you pinpoint insights for every phase of your cloud journey. As a pure SaaS solution, we’re uniquely
-                    poised to deliver accurate metrics—so you can see clearly and instantly how your apps are performing, wherever they are.
-                </li>
-            </ul>
-        </div>
-        <div style="clear: both"></div>
-        <div class="how-to">
-            <h2>How to integrate New Relic</h2>
+            <div style="clear: both"></div>
 
-            <ol>
-                <li>
-                    <strong>Go to Alerts</strong> - The alerts section is used to tell NewRelic who or what to inform. We assume that you
-                    have already created some alert policies you want to be alerted of. If you haven't please create some.
-                </li>
-                <li>
-                    <strong>Notification channels</strong> - A notification channel defines how to inform other systems or persons about occuring
-                    Incidents.
-                </li>
-                <li style="padding-bottom: 0"><strong>New notification channel - </strong>
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>New Notification Channel</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/newrelic/step2.png') }}" width="350px">
+                </div>
+                <div class="help">
+                    {% content "integration-newrelic-step2" %}
+                    Koalamon and NewRelic can communicate via NewRelic Alerts. The only thing that has to be done is creating
+                    a new notification channel.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Create a new notification channel</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/newrelic/step3.png') }}" width="460px">
+                </div>
+                <div class="help">
+                    {% content "integration-newrelic-step3" %}
                     When creating a new notification channel there are only three fields you have to fill out.
-                    <ul style="padding-top: 20px; mrgin-bottom: 0">
-                        <li>
-                            <strong>Select channel type</strong> - As channel type you have to choose <strong>Webhook</strong>.
-                            A webhook is a simple http interface we provide for NewRelic users.
-                        </li>
-                        <li><strong>Channel name</strong> - You can choose any channel name you want.
-                            We prefer names like <i>Koalamon - www.example.com</i>, but it's up to you.
-                        </li>
-                        <li><strong>Base Url</strong> - The webhook for this project (<i>{{ project.name }}</i>) is:
-                            <div class="code">{{ url('koalamon_webhook_format', {'format': 'newrelic'}) }}?api_key={{ project.apiKey }}</div>
-                        </li>
+                    <ul>
+                        <li><strong>Select channel type</strong> - As channel type you have to choose Webhook. A webhook is a simple http interface we provide for NewRelic users.</li>
+                        <li><strong>Channel name</strong> - You can choose any channel name you want. We prefer names like Koalamon - www.example.com, but it's up to you.</li>
+                        <li><strong>Base Url</strong> - The base url is the last thing you have to configure. Please see the next step for the correct value.</li>
                     </ul>
-                </li>
-                <li><strong>Wait for your first alert</strong> - We're done. Now you can wait for the first alert to occur.</li>
+                    {% endcontent %}
+                </div>
+            </div>
 
-            </ol>
+            <div style="clear: both"></div>
 
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Base Url</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+                </div>
+                <div class="help">
+                    {% content "integration-newrelic-step1" %}
+                    This is the base url NewRelic will send its events to.
+                    {% endcontent %}
+                </div>
+            </div>
 
+            <div style="clear: both"></div>
         </div>
     </div>
 
