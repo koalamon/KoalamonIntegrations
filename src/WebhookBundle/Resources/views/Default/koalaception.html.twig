@@ -1,0 +1,26 @@
+{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+
+{% block admin %}
+
+    <div class="box-element first">
+        <div class="box-element-header">Koalaception</div>
+        <div class="box-element-content">
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Webhook Url</strong> - {{ project.name }}</h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+                </div>
+                <div class="help">
+                    {% content "integration-webhook-url" %}
+                    The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
+                    to fire a http request agains our server.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+        </div>
+    </div>
+
+{% endblock %}

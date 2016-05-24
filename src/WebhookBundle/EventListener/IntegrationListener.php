@@ -48,5 +48,11 @@ class IntegrationListener
 
         $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'jenkins']);
         $integrationContainer->addIntegration(new Integration('Jenkins', '/bundles/koalamonintegrationwebhook/images/jenkins.png', 'Build great things at any scale', $url));
+
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'koalaception']);
+        $integrationContainer->addIntegration(new Integration('Codeception', '/bundles/koalamonintegrationwebhook/images/codeception.png', 'Modern PHP testing for everyone.', $url));
+
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'xunit']);
+        $integrationContainer->addIntegration(new Integration('xUnit', '/bundles/koalamonintegrationwebhook/images/xunit.png', 'Sending every xunit files to koalamon.', $url));
     }
 }
