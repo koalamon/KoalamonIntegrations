@@ -4,16 +4,87 @@
 
     <div class="box-element first">
         <div class="box-element-header">xUnit</div>
+
         <div class="box-element-content">
             <div class="options-element">
                 <div class="option">
-                    <h2><strong>Webhook Url</strong> - {{ project.name }}</h2>
-                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/xunit.png') }}" width="300" style="margin-left: 100px">
                 </div>
                 <div class="help">
-                    {% content "integration-webhook-url" %}
-                    The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
-                    to fire a http request agains our server.
+                    {% content "integration-xunit-intro" %}
+                    The xUnit output format is one of the most importing xml formats when it comes to testing.
+                    Therefore we provide a command line tool that can be used to send every standard xunit xml file
+                    to koalamon.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+
+            <div class="box-element-content">
+                <div class="options-element">
+                    <div class="option">
+                        <h2><strong>Download</strong></h2>
+                        <div class="code" style="white-space: normal; word-wrap: break-word;">
+                            http://pharchive.phmlabs.com/archive/koalamon/XUnitReporter/current/XUnitReporter.phar
+                        </div>
+                    </div>
+                    <div class="help">
+                        {% content "integration-xunit-step1" %}
+                        The first thing you have to do is to download our command line tool. It is a php5 application that will do the
+                        job for you. The url on th eleft will always point to the newest version of the XUnitReporter.
+                        {% endcontent %}
+                    </div>
+                </div>
+
+                <div style="clear: both"></div>
+
+            </div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Command Line Arguments</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;"><pre>php XUnitReporter.phar
+    path/to/xunit-file.xml
+    {{ project.apiKey }}
+    &lt;system identifier&gt;
+    &lt;event identifier&gt;
+    &lt;tool identifier&gt;
+    "your error message"</pre>
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-xunit-step2" %}
+                    After downloading the executable you can run it with every xunit xml file you want. In order to
+                    create the correct event in koalamon you have to add some additional information that is not part
+                    of the xml file.
+                    <ul>
+                        <li><strong>Filename</strong> - the xunit filename you want to parse.</li>
+                        <li>
+                            <strong>System Identifier</strong> - In order to aggregate the data for your systems you have to map the
+                            events on one system. You can see all existing systems and their identifiers in the system administration.
+                        </li>
+                        <li>
+                            <strong>Project Key</strong> - the key for this project.
+                        </li>
+                        <li>
+                            <strong>Event Identifier</strong> - A unique identifier that names this event. All events with this identifier
+                            will be handled one event type. We will build statistics for this identifier and and group all events by this
+                            id.
+                        </li>
+                        <li>
+                            <strong>Tool Identifier</strong> - every tool in koalamon has its own identifier. If the tool is not known
+                            by koalamon it will be created as soon as the first event comes in. Afterwards you can see them in your
+                            tool overview.
+                        </li>
+                        <li>
+                            <strong>Error Message</strong> - all incidents that are found in the xunit file will be listed in the created
+                            incident. As we do not know which of the error messages inside the file represents the complete group of
+                            incidents you have to tell us what the main error message is.
+                        </li>
+
+                    </ul>
                     {% endcontent %}
                 </div>
             </div>
