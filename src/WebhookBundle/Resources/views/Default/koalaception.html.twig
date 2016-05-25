@@ -3,17 +3,81 @@
 {% block admin %}
 
     <div class="box-element first">
-        <div class="box-element-header">Koalaception</div>
+        <div class="box-element-header">Codeception / Koalaception</div>
         <div class="box-element-content">
             <div class="options-element">
                 <div class="option">
-                    <h2><strong>Webhook Url</strong> - {{ project.name }}</h2>
-                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_standard') }}?api_key={{ project.apiKey }}</div>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/codeception.png') }}" width="300" style="margin-left: 100px">
                 </div>
                 <div class="help">
-                    {% content "integration-webhook-url" %}
-                    The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
-                    to fire a http request agains our server.
+                    {% content "integration-codeception-intro" %}
+                    This integration is designed for the functional testing tool codeception. It
+                    will help to send the test results to a specified system in the current project.
+
+                    Koalaception, as we call our tool, is designed as a Codeception Module.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Download</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">
+                        http://pharchive.phmlabs.com/archive/koalamon/Koalaception/current/KoalamonReporter.phar
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-codeception-step1" %}
+                    The first thing you have to do is to download our command line tool. It is a php5 application that will do the
+                    job for you. The url on the left will always point to the newest version of the Koalaception.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Register Autoloader</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word; font-size: 13px">
+                        include_once 'phar://path/to/KoalamonReporter.phar/vendor/autoload.php";
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-codeception-step2" %}
+                    As Koalaception is a standard module for Codeception we need to register the modules namespace.
+                    You have to do that inside your global <strong>bootstrap.php</strong> file.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Enable Extension</strong></h2>
+<div class="code" style="white-space: normal; word-wrap: break-word; font-size: 13px"><pre># codeception.yml
+extensions:
+  enabled:
+    - Koalamon\Extension\KoalamonReporter
+  config:
+    Koalamon\Extension\KoalamonReporter:
+      api_key: {{ project.apiKey }}
+      system: &lt;system identifier&gt;
+      tool: &lt;tool identifier&gt;</pre>
+</div>
+                </div>
+                <div class="help">
+                    {% content "integration-codeception-step3" %}
+                    Like every other module Koalaception must be configured inside the codeception.yml file.
+                    Our extensions needs three parameters:
+                    <ul>
+                        <li><strong>api_key</strong> - the api key for the current project.</li>
+                        <li><strong>system identifier</strong> - the system identifier</li>
+                        <li><strong>tool identifer</strong> - the tool identifier</li>
+                    </ul>
                     {% endcontent %}
                 </div>
             </div>
