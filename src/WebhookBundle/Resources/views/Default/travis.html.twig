@@ -1,21 +1,68 @@
 {% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
 
 {% block admin %}
-    <h1>Travis CI</h1>
 
-    <div id="integration">
-        <div class="about">
-        </div>
-        <div style="clear: both"></div>
-        <div class="how-to">
+    https://docs.travis-ci.com/user/notifications/#Webhook-notification
 
-            Connecting Travis CI to Koalamon is very simple. Just add these to lines of code to your travis.yml file and commit your changes. Done.
+    <div class="box-element first">
+        <div class="box-element-header">Travis CI</div>
 
-<div class="code">
-notifications:
-  webhooks: {{ url('koalamon_webhook_format', {'format': 'travis'}) }}?api_key={{ project.apiKey }}
+        <div class="box-element-content">
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Settings</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/travis/strep1.png') }}" width="300" style="margin-left: 100px">
+                </div>
             </div>
-
+            <div class="help">
+                {% content "integration-travis-step     " %}
+                The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
+                to fire a http request agains our server.
+                {% endcontent %}
+            </div>
         </div>
     </div>
+
+    <div style="clear: both"></div>
+
+    <div class="box-element-content">
+        <div class="options-element">
+            <div class="option">
+                <h2><strong>travis.yml</strong></h2>
+                <div class="code" style="white-space: normal; word-wrap: break-word;"><pre>notifications:
+  webhooks: http://monitor.koalamon.com/webhook/travis/?api_key=$KOALAMON_API_KEY</pre>
+                </div>
+            </div>
+        </div>
+        <div class="help">
+            {% content "integration-travis-step     " %}
+            The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
+            to fire a http request agains our server.
+            {% endcontent %}
+        </div>
+    </div>
+    </div>
+
+    <div style="clear: both"></div>
+
+        <div class="box-element-content">
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>travis.yml</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;"><pre>notifications:
+  webhooks: http://monitor.koalamon.com/webhook/travis/?api_key=$KOALAMON_API_KEY</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="help">
+                {% content "integration-travis-step     " %}
+                The koalamon webhook is the easiest way to integrate your own system. The only thing you have to do is
+                to fire a http request agains our server.
+                {% endcontent %}
+            </div>
+        </div>
+    </div>
+
+    <div style="clear: both"></div>
+
 {% endblock %}
