@@ -1,0 +1,92 @@
+{% extends '@KoalamonIntegrationWebhook/Default/integration.html.twig' %}
+
+{% block integration %}
+
+    <div class="box-element first">
+        <div class="box-element-header">Scrutinizer</div>
+        <div class="box-element-content">
+
+            <div class="options-element">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/scrutinizer.png') }}" width="200" style="margin-left: 100px">
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-intro" %}
+                    Improve code quality and find bugs before they hit production with our continuous inspection platform
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/scrutinizer/step1.png') }}" width="350">
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-step1" %}
+                    Scrutinizer uses webhooks to inform third-party applications about the current quality index. To configure
+                    this tool go to the project settings and choose <strong>Service Hooks</strong>.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/scrutinizer/step2.png') }}" width="480">
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-step2" %}
+                    The service hook section provides the possibility to add web hooks. You can do this simply be clicking
+                    the "Add Web-Hook" button.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Url</strong> - {{ project.name }}</h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_format', {'format': 'scrutinizer'}) }}?api_key={{ project.apiKey }}</div>
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-step3" %}
+                    Paste the web hook url on the left into the url field on scrutinizer and click on "Add Webhook".
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <form id="options">
+                        <label for="limit" style="float: left; width: 80px">Limit</label>
+                        <input type="number" style="width: 350px" name="options[limit]" id="limit" value="{% if options.limit is defined %}{{ options.limit }}{% endif %}">
+                    </form>
+                    <button class="button-standard" onclick="integration_store_options('#options')" style="position: relative; top: -3px; padding-top: 3px; padding-bottom: 3px; font-size: 12px">
+                        Store
+                    </button>
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-step4" %}
+                    <p>
+                        Scrutinizer rates your source code on a scale to 0 to 10 where ten is the best value you can archieve.
+                        As all metrics this value is just a number and you have to decide if the value is good enough for your
+                        project.
+                    </p>
+                    <p>
+                        Press the store button after you entered a number between 0 and 10 to activate the integration.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

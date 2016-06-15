@@ -1,0 +1,15 @@
+{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+
+{% block admin %}
+
+    <div class="go-back"><a href="{{ path('koalamon_integration_home', {'project': project.identifier }) }}">Back to integration overview</a></div>
+    {% block integration %}{% endblock %}
+
+    <script>
+        function integration_store_options(formIdentifier) {
+            url = '{{ path('koalamonintegration_store', {'hookName': format, 'project': project.identifier }) }}'
+            callService(url, $(formIdentifier).serialize());
+        }
+    </script>
+
+{% endblock %}

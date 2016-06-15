@@ -1,3 +1,7 @@
 koalamonintegration_webhook:
     path:     /p/{project}/integration/{hookName}/
     defaults: { _controller: KoalamonIntegrationWebhookBundle:Default:webhook }
+
+koalamonintegration_store:
+    path:     /p/{project}/integration/store/{hookName}/
+    defaults: { _controller: KoalamonIntegrationWebhookBundle:Default:storeOptions }

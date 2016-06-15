@@ -54,5 +54,8 @@ class IntegrationListener
 
         $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'xunit']);
         $integrationContainer->addIntegration(new Integration('xUnit', '/bundles/koalamonintegrationwebhook/images/xunit.png', 'Sending every xunit files to koalamon.', $url));
+
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'scrutinizer']);
+        $integrationContainer->addIntegration(new Integration('Scrutinizer', '/bundles/koalamonintegrationwebhook/images/scrutinizer.png', 'Continuously measure and track your code quality', $url));
     }
 }
