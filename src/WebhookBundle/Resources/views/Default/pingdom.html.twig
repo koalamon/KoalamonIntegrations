@@ -1,0 +1,93 @@
+{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+
+{% block admin %}
+
+    <div class="box-element first">
+        <div class="box-element-header">Pingdom</div>
+        <div class="box-element-content">
+            <div class="options-element first">
+                <div class="option">
+                    <h2><strong>Add Integration</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/pingdom/step1.png') }}" width="350px">
+                </div>
+                <div class="help">
+                    {% content "integration-pingdom-step1" %}
+                    <p>
+                        The integration of pingdom is a two part job. The first thing you have to do is to create
+                        a webhook integration in pingdom. Afterwards you have to connect the monitoring.
+                    </p>
+                    <p>
+                        To set up the webhook you have to go to the integration page.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Add Integration</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/pingdom/step2.png') }}" width="500px">
+                </div>
+                <div class="help">
+                    {% content "integration-pingdom-step2" %}
+                    <p>
+                        After clicking on "add integration" you have to fill in the following fields:
+                    <ul>
+                        <li><strong>Type</strong> - Choose Webhook.</li>
+                        <li><strong>Name</strong> - You can choose every name you want e.g. "Koalamon // MyProject"</li>
+                        <li><strong>Url</strong> - Please see the next step for the webhook url.</li>
+                        <li><strong>Active</strong> - Set the integration to active.</li>
+                    </ul>
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Webhook URL</strong></h2>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_format', {'format': 'pingdom'}) }}?api_key={{ project.apiKey }}</div>
+                </div>
+                <div class="help">
+                    {% content "integration-pingdom-step3" %}
+                    <p>
+                        Use this url to send the pingdom events to koalamon.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+
+            <div class="options-element">
+                <div class="option">
+                    <h2><strong>Connect Integration</strong></h2>
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/pingdom/step4.png') }}" width="500px">
+                </div>
+                <div class="help">
+                    {% content "integration-pingdom-step4" %}
+                    <p>
+                        After finishing the creation of the needed webhook you have to connect the monitoring with the hook.
+                    </p>
+                    <p>
+                        This can be done be opening any check in edit mode and select the created webhook integration.
+                    </p>
+                    <p>
+                        From now on pingdom and koalamon communicate with each other.
+                    </p>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+
+        </div>
+    </div>
+
+{% endblock %}

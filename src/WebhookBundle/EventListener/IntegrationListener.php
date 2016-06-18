@@ -56,6 +56,10 @@ class IntegrationListener
         $integrationContainer->addIntegration(new Integration('xUnit', '/bundles/koalamonintegrationwebhook/images/xunit.png', 'Sending every xunit files to koalamon.', $url));
 
         $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'scrutinizer']);
-        $integrationContainer->addIntegration(new Integration('Scrutinizer', '/bundles/koalamonintegrationwebhook/images/scrutinizer.png', 'Continuously measure and track your code quality', $url));
+        $integrationContainer->addIntegration(new Integration('Scrutinizer', '/bundles/koalamonintegrationwebhook/images/scrutinizer.png', 'Continuously measure and track your code quality.', $url));
+
+        $url = $this->router->generate('koalamonintegration_webhook', ['project' => $event->getProject()->getIdentifier(), 'hookName' => 'pingdom']);
+        $integrationContainer->addIntegration(new Integration('Pingdom', '/bundles/koalamonintegrationwebhook/images/pingdom.png', 'Web performance management.', $url));
+
     }
 }
