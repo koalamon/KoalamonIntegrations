@@ -1,12 +1,77 @@
-{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+{% extends '@KoalamonIntegrationWebhook/Default/integration.html.twig' %}
 
-{% block admin %}
-    <h1>Jenkins</h1>
+{% block integration %}
 
-    https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin
+    <div class="box-element first">
+        <div class="box-element-header">Jenkins</div>
+        <div class="box-element-content">
 
-    <br><br>
+            <div class="options-element first">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/jenkins.png') }}" width="200" style="margin-left: 100px">
+                </div>
+                <div class="help">
+                    {% content "integration-jenkins-intro" %}
+                    The leading open source automation server.
+                    {% endcontent %}
+                </div>
+            </div>
 
-    {{ url('koalamon_webhook_format', {'format': 'jenkins'}) }}?api_key={{ project.apiKey }}
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <div class="code" style="white-space: normal; word-wrap: break-word; font-size: 13px">
+                        <a href="https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin">https://wiki.jenkins-ci.org/display/JENKINS/Notification+Plugin</a>
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-jenkins-step1" %}
+                    By default jenkins is not able to send http but one of the strengths of jenkins are the hundreds of plugins. We decided to take the
+                    simple notification plugin from <a href="http://www.tikalk.com/">Tikal Knowledge</a> which can be found under the url on the left.
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div class="options-element">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationwebhook/images/jenkins/step1.png') }}" width="500">
+                </div>
+                <div class="help">
+                    {% content "integration-jenkins-intro" %}
+                    After installation of the plugin there is only one step to do. Go to your project configuration page and add a job notification.
+                    <ul>
+                        <li><strong>Format</strong>: JSON</li>
+                        <li><strong>Protocol</strong>: HTTP</li>
+                        <li><strong>Event</strong>: All Events</li>
+                        <li><strong>Url</strong>: See next step</li>
+                        <li><strong>Timeout</strong>: 30000</li>
+                        <li><strong>Log</strong>: 0</li>
+                    </ul>
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <div class="code" style="white-space: normal; word-wrap: break-word; font-size: 13px">
+                        {{ url('koalamon_webhook_format', {'format': 'jenkins'}) }}?api_key={{ project.apiKey }}
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-jenkins-step1" %}
+                    The webhook url for this job notification.
+                    {% endcontent %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
 
 {% endblock %}
