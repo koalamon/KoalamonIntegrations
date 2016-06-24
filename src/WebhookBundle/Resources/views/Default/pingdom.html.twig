@@ -50,7 +50,7 @@
             <div class="options-element">
                 <div class="option">
                     <h2><strong>Webhook URL</strong></h2>
-                    <div class="code" style="white-space: normal; word-wrap: break-word;">{{ url('koalamon_webhook_format', {'format': 'pingdom'}) }}?api_key={{ project.apiKey }}</div>
+                    <div class="code" style="white-space: normal; word-wrap: break-word;">https://webhook.koalamon.com/?format=pingdom&api_key={{ project.apiKey }}</div>
                 </div>
                 <div class="help">
                     {% content "integration-pingdom-step3" %}

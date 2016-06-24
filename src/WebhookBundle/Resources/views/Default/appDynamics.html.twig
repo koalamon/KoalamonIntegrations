@@ -25,9 +25,7 @@
                         </li>
                         <li><strong>Request URL</strong> - The request URL is the endpoint where AppDynamics sends the payload to. You have
                             to chose <strong>POST</strong> as method and use the following url:
-                            <div class="code">
-{{ url('koalamon_webhook_format', {'format': 'appdynamics'}) }}?api_key={{ project.apiKey }}
-                            </div>
+                            <div class="code">https://webhook.koalamon.com/?format=appdynamics&api_key={{ project.apiKey }}</div>
                         </li>
                         <li><strong>Payload</strong> We decided to put a lot of data into the payload. It will make it easier for
                             us to parse the information and provide the most valuable event information.
