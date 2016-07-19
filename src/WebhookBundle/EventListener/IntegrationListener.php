@@ -2,9 +2,9 @@
 
 namespace KoalamonIntegration\WebhookBundle\EventListener;
 
-use Koalamon\Bundle\IntegrationBundle\EventListener\IntegrationInitEvent;
-use Koalamon\Bundle\IntegrationBundle\Integration\Integration;
-use Koalamon\Bundle\IntegrationBundle\Integration\IntegrationContainer;
+use Koalamon\IntegrationBundle\EventListener\IntegrationInitEvent;
+use Koalamon\IntegrationBundle\Integration\Integration;
+use Koalamon\IntegrationBundle\Integration\IntegrationContainer;
 use Symfony\Component\DependencyInjection\Container;
 
 class IntegrationListener

@@ -2,9 +2,8 @@
 
 namespace KoalamonIntegration\EmailBundle\EventListener;
 
-use Koalamon\Bundle\IntegrationBundle\EventListener\IntegrationInitEvent;
-use Koalamon\Bundle\IntegrationBundle\Integration\Integration;
-use Koalamon\Bundle\IntegrationBundle\Integration\IntegrationContainer;
+use Koalamon\IntegrationBundle\EventListener\IntegrationInitEvent;
+use Koalamon\IntegrationBundle\Integration\Integration;
 use Symfony\Component\DependencyInjection\Container;
 
 class IntegrationListener
