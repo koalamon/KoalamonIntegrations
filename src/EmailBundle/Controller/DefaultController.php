@@ -2,7 +2,7 @@
 
 namespace KoalamonIntegration\EmailBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Controller\ProjectAwareController;
+use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
 
 class DefaultController extends ProjectAwareController
 {

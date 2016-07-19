@@ -2,7 +2,7 @@
 
 namespace KoalamonIntegration\WebhookBundle\Controller;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Controller\ProjectAwareController;
+use Koalamon\IncidentDashboardBundle\Controller\ProjectAwareController;
 use Koalamon\Bundle\IntegrationBundle\Entity\Configuration;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;

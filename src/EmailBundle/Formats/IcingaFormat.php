@@ -2,8 +2,8 @@
 
 namespace KoalamonIntegration\EmailBundle\Formats;
 
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\Event;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\RawEvent;
+use Koalamon\IncidentDashboardBundle\Entity\Event;
+use Koalamon\IncidentDashboardBundle\Entity\RawEvent;
 
 class IcingaFormat implements Format
 {

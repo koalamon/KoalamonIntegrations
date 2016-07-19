@@ -7,7 +7,7 @@
  */
 
 namespace KoalamonIntegration\EmailBundle\Formats;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\RawEvent;
+use Koalamon\IncidentDashboardBundle\Entity\RawEvent;
 
 interface Format
 {

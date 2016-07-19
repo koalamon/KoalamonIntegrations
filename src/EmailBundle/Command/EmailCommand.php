@@ -3,9 +3,6 @@
 namespace KoalamonIntegration\EmailBundle\Command;
 
 use Ddeboer\Imap\Server;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\Event;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\Project;
-use Koalamon\Bundle\IncidentDashboardBundle\Entity\RawEvent;
 use KoalamonIntegration\EmailBundle\Formats\FormatFactory;
 use KoalamonIntegration\EmailBundle\Formats\IcingaFormat;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
