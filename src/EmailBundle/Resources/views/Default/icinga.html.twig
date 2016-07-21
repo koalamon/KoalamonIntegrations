@@ -1,12 +1,39 @@
-{% extends '@KoalamonDefault/Default/master/admin.html.twig' %}
+{% extends '@KoalamonIntegrationWebhook/Default/integration.html.twig' %}
 
-{% block admin %}
-    <h1>
-        Icinga
-    </h1>
+{% block integration %}
 
-    <div id="integration">
-        <div class="code">icinga.{{ project.apiKey | lower }}@koalamon.com</div>
+    <div class="box-element first">
+        <div class="box-element-header">Icinga</div>
+        <div class="box-element-content">
+
+            <div class="options-element">
+                <div class="option">
+                    <img src="{{ asset('bundles/koalamonintegrationemail/images/icinga.png') }}" width="200" style="margin-left: 100px">
+                </div>
+                <div class="help">
+                    {% content "integration-scrutinizer-intro" %}
+                    Improve code quality and find bugs before they hit production with our continuous inspection platform
+                    {% endcontent %}
+                </div>
+            </div>
+
+            <div style="clear: both"></div>
+
+            <div class="options-element">
+                <div class="option">
+                    <div class="code" style="white-space: normal; word-wrap: break-word; font-size: 13px">
+                        icinga.{{ project.apiKey | lower }}@koalamon.com
+                    </div>
+                </div>
+                <div class="help">
+                    {% content "integration-icinga-step1" %}
+                    The incinga configuration is straight forward. Everything you have to do is to
+                    <a href="http://docs.icinga.org/latest/en/notifications2.html">create a notification</a>
+                    for the alerts you want and send it to the email address an the left.
+                    {% endcontent %}
+                </div>
+            </div>
+        </div>
     </div>
 
 {% endblock %}
