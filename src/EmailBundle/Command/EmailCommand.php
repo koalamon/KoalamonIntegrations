@@ -21,7 +21,7 @@ class EmailCommand extends ContainerAwareCommand
     private function getMessages(OutputInterface $output)
     {
         $server = new Server('imap.gmail.com');
-        $connection = $server->authenticate('koalamon.com@gmail.com', '$stro8879');
+        $connection = $server->authenticate('<email>', '<password>');
 
         $mailbox = $connection->getMailbox("[Gmail]/Alle Nachrichten");
 
